@@ -22,7 +22,7 @@ public class BuscarTodos {
 	List <Restaurante> todosRestaurantes = restaurante.todos();
 	
 	for (Restaurante r : todosRestaurantes) {
-	    System.out.println(r);
+	   System.out.printf("%s - %.2f - %s\n", r.getNome(), r.getTaxaFrete(), r.getCozinha().getNome());
 	}
     }
 }
