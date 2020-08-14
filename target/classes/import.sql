@@ -16,3 +16,8 @@ insert into restaurante (nome, taxa_frete, cozinha_id, forma_pagamento_id) value
 
 insert into permissao (nome, descricao) values ("Administrador", "Tem acesso a tudo")
 insert into permissao (nome, descricao) values ("Usuario", "Tem acesso as funcionalidades padrões")
+
+insert into estado (nome) values ('Maranhão')
+insert into estado (nome) values ("São Paulo")
+insert into estado (nome) values ("Rio de janeiro")
+insert into estado (nome) values ('Minas Gerais')
