@@ -12,3 +12,7 @@ insert into restaurante (nome, taxa_frete, cozinha_id, forma_pagamento_id) value
 insert into restaurante (nome, taxa_frete, cozinha_id, forma_pagamento_id) values ("Baratiê", 3.99, 2, 2);
 insert into restaurante (nome, taxa_frete, cozinha_id, forma_pagamento_id) values ("Souma family", 6.99, 4, 3);
 
+
+
+insert into permissao (nome, descricao) values ("Administrador", "Tem acesso a tudo")
+insert into permissao (nome, descricao) values ("Usuario", "Tem acesso as funcionalidades padrões")
