@@ -21,3 +21,8 @@ insert into estado (nome) values ('Maranhão')
 insert into estado (nome) values ("São Paulo")
 insert into estado (nome) values ("Rio de janeiro")
 insert into estado (nome) values ('Minas Gerais')
+
+insert into cidade (nome, estado_id) values ("São Luís", 1)
+insert into cidade (nome, estado_id) values ("São Paulo", 2)
+insert into cidade (nome, estado_id) values ("Rio de janeiro", 3)
+insert into cidade (nome, estado_id) values ("Ouro Preto", 4)
