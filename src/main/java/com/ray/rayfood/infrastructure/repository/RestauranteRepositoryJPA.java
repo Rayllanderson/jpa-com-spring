@@ -1,4 +1,4 @@
-package com.ray.infrastructure.repository;
+package com.ray.rayfood.infrastructure.repository;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
-import com.ray.domain.entities.Restaurante;
-import com.ray.domain.repository.RestauranteRepository;
+import com.ray.rayfood.domain.entities.Restaurante;
+import com.ray.rayfood.domain.repository.RestauranteRepository;
 
 @Component
 public class RestauranteRepositoryJPA implements RestauranteRepository {

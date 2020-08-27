@@ -6,9 +6,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
-import com.ray.domain.entities.Cozinha;
-import com.ray.domain.repository.CozinhaRepository;
-import com.rayllanderson.rayfood.MainApplication;
+import com.ray.rayfood.MainApplication;
+import com.ray.rayfood.domain.entities.Cozinha;
+import com.ray.rayfood.domain.repository.CozinhaRepository;
 
 public class BuscaCozinhaMain {
     
@@ -17,7 +17,7 @@ public class BuscaCozinhaMain {
 	
 	CozinhaRepository cozinhas = aContext.getBean(CozinhaRepository.class);
 	
-	List<Cozinha> todasCozinhas = cozinhas.todas();
+	List<Cozinha> todasCozinhas = cozinhas.listar();
 	
 	for (Cozinha c : todasCozinhas) {
 	    System.out.println(c.getNome());

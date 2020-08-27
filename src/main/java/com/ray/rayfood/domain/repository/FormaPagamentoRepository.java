@@ -1,8 +1,8 @@
-package com.ray.domain.repository;
+package com.ray.rayfood.domain.repository;
 
 import java.util.List;
 
-import com.ray.domain.entities.FormaPagamento;
+import com.ray.rayfood.domain.entities.FormaPagamento;
 
 public interface FormaPagamentoRepository {
     

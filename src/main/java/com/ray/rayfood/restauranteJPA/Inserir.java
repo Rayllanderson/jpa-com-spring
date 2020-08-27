@@ -6,9 +6,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
-import com.ray.domain.entities.Restaurante;
-import com.ray.domain.repository.RestauranteRepository;
-import com.rayllanderson.rayfood.MainApplication;
+import com.ray.rayfood.MainApplication;
+import com.ray.rayfood.domain.entities.Restaurante;
+import com.ray.rayfood.domain.repository.RestauranteRepository;
 
 public class Inserir {
 

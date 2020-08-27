@@ -1,4 +1,4 @@
-package com.ray.domain.entities;
+package com.ray.rayfood.domain.entities;
 
 import java.math.BigDecimal;
 

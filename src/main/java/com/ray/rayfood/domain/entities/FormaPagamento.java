@@ -1,4 +1,4 @@
-package com.ray.domain.entities;
+package com.ray.rayfood.domain.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,12 +11,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Permissao {
+public class FormaPagamento {
     
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    
     private String descricao;
+
 }

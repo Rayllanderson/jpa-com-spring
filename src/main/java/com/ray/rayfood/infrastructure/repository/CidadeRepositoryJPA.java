@@ -1,4 +1,4 @@
-package com.ray.infrastructure.repository;
+package com.ray.rayfood.infrastructure.repository;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
-import com.ray.domain.entities.Cidade;
-import com.ray.domain.repository.CidadeRepository;
+import com.ray.rayfood.domain.entities.Cidade;
+import com.ray.rayfood.domain.repository.CidadeRepository;
 
 @Component
 public class CidadeRepositoryJPA implements CidadeRepository{
@@ -18,7 +18,7 @@ public class CidadeRepositoryJPA implements CidadeRepository{
     private EntityManager em;
 
     @Override
-    public List<Cidade> todas() {
+    public List<Cidade> listar() {
 	return em.createQuery("from Cidade", Cidade.class).getResultList();
     }
 
@@ -28,14 +28,14 @@ public class CidadeRepositoryJPA implements CidadeRepository{
 	return em.merge(Cidade);
     }
     @Override
-    public Cidade porId(Long id) {
+    public Cidade findById(Long id) {
 	return em.find(Cidade.class, id);
     }
    
     @Override
     @Transactional
     public void remover(Cidade estado) {
-	em.remove(porId(estado.getId()));
+	em.remove(findById(estado.getId()));
     }
 
 }

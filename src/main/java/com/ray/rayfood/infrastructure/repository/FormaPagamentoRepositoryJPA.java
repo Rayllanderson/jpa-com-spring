@@ -1,4 +1,4 @@
-package com.ray.infrastructure.repository;
+package com.ray.rayfood.infrastructure.repository;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
-import com.ray.domain.entities.FormaPagamento;
-import com.ray.domain.repository.FormaPagamentoRepository;
+import com.ray.rayfood.domain.entities.FormaPagamento;
+import com.ray.rayfood.domain.repository.FormaPagamentoRepository;
 
 @Component
 public class FormaPagamentoRepositoryJPA implements FormaPagamentoRepository{

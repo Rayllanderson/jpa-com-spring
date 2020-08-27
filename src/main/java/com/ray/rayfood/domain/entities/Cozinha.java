@@ -1,5 +1,6 @@
-package com.ray.domain.entities;
+package com.ray.rayfood.domain.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,13 +10,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode (onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Estado {
+public class Cozinha {
     
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
     private Long id;
+    
+    @Column(length = 30)
     private String nome;
 }

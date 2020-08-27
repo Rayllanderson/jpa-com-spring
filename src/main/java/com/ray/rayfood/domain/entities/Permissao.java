@@ -1,25 +1,22 @@
-package com.ray.domain.entities;
+package com.ray.rayfood.domain.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode (onlyExplicitlyIncluded = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Cidade {
-     
+public class Permissao {
+    
+    @EqualsAndHashCode.Include
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @EqualsAndHashCode.Include
     private Long id;
     private String nome;
-    
-    @ManyToOne
-    private Estado estado;
+    private String descricao;
 }

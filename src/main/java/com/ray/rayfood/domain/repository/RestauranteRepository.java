@@ -1,8 +1,8 @@
-package com.ray.domain.repository;
+package com.ray.rayfood.domain.repository;
 
 import java.util.List;
 
-import com.ray.domain.entities.Restaurante;
+import com.ray.rayfood.domain.entities.Restaurante;
 
 public interface RestauranteRepository {
 

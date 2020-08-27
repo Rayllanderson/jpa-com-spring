@@ -6,9 +6,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 
-import com.ray.domain.entities.Cidade;
-import com.ray.domain.repository.CidadeRepository;
-import com.rayllanderson.rayfood.MainApplication;
+import com.ray.rayfood.MainApplication;
+import com.ray.rayfood.domain.entities.Cidade;
+import com.ray.rayfood.domain.repository.CidadeRepository;
 
 public class CidadeCRUD {
 
@@ -17,10 +17,10 @@ public class CidadeCRUD {
 		.run(args);
 	CidadeRepository cidade = aContext.getBean(CidadeRepository.class);
 	
-	List<Cidade> todasCidades = cidade.todas();
+	List<Cidade> todasCidades = cidade.listar();
 	todasCidades.forEach(System.out::println);
 	
-	Cidade c = cidade.porId(1L);
+	Cidade c = cidade.findById(1L);
 	System.out.println(c);
 	
 	c = new Cidade();
