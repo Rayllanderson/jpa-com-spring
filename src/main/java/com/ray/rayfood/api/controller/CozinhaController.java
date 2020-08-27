@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,9 +43,33 @@ public class CozinhaController {
 	return new CozinhasXmlWrapper(cozinhaRepository.listar());
     }
     
+   // @ResponseStatus(code = HttpStatus.OK) //lançando manualmente um status http como resposta
     @GetMapping("/{cozinhaId}")
-    public Cozinha buscar(@PathVariable("cozinhaId") Long id) {
-	return cozinhaRepository.findById(id);
+    public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId) {
+	Cozinha cozinha = cozinhaRepository.findById(cozinhaId);
+	if (cozinha!= null) {
+	    //return ResponseEntity.status(HttpStatus.OK).body(cozinha);
+	    return ResponseEntity.ok(cozinha); //um shortcut do método acima!
+	}
+	
+	//return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	return ResponseEntity.notFound().build(); //atalho do retorno acima;
     }
+    
+
+    /* Lançando um status 302 com header utilizando ResponseEntity. 
+    @GetMapping("/{cozinhaId}")
+    public ResponseEntity<Cozinha> buscar1(@PathVariable("cozinhaId") Long id) {
+	
+	//instanciando um header
+	HttpHeaders header = new HttpHeaders(); 
+	
+	//adicionando um novo header
+	header.add(HttpHeaders.LOCATION, "http://localhost:8080/cozinhas");
+	
+	//retornando o header
+	return ResponseEntity.status(HttpStatus.FOUND).headers(header).build();
+    }
+    */
     
 }
