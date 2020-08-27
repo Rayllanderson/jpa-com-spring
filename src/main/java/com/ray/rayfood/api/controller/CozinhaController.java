@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ray.rayfood.domain.entities.Cozinha;
 import com.ray.rayfood.domain.repository.CozinhaRepository;
 
+/*
+ * UM RECURSO É QUALQUER COISA EXPOXTA NA WEB E PRECISA DE UM URI PRA SER ACESSADO!
+ * 
+ */
+
 //@Controller //indica que essa classe é um controller (oh, não me diga...)
 //@ResponseBody - diz que a respostas dos métodos deve ser enviada como resposta da requisição HTTP
 //tem que ser exatamente a que o método está pedindo. no caso o método listar, anotado com get mapping
