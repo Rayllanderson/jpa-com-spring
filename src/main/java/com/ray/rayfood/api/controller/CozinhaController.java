@@ -2,13 +2,17 @@ package com.ray.rayfood.api.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -55,7 +59,6 @@ public class CozinhaController {
 	    //return ResponseEntity.status(HttpStatus.OK).body(cozinha);
 	    return ResponseEntity.ok(cozinha); //um shortcut do método acima!
 	}
-	
 	//return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	return ResponseEntity.notFound().build(); //atalho do retorno acima;
     }
@@ -66,6 +69,32 @@ public class CozinhaController {
 	return cozinhaRepository.adicionar(cozinha);
     }
     
+    @PutMapping("/{cozinhaId}")
+    public ResponseEntity<Cozinha> atualizar(@PathVariable Long cozinhaId, @RequestBody Cozinha cozinhaQueVemDoBody){
+	Cozinha cozinhaAtual = cozinhaRepository.findById(cozinhaId); //cozinha que está no banco de dados
+	if(cozinhaAtual != null) {
+//	    cozinhaAtual.setNome(cozinhaQueVemDoBody.getNome()); 
+            BeanUtils.copyProperties(cozinhaQueVemDoBody, cozinhaAtual, "id"); //copiando tudo do body pra cozinha que a gente recuperou do BD e ignorando o "ID"
+            cozinhaAtual = cozinhaRepository.adicionar(cozinhaAtual);
+            return ResponseEntity.ok(cozinhaRepository.adicionar(cozinhaAtual));
+	}
+	return ResponseEntity.notFound().build();
+    }
+    
+    @DeleteMapping("/{cozinhaId}")
+    public ResponseEntity<Cozinha> remover(@PathVariable Long cozinhaId){
+	try {
+	    Cozinha cozinha = cozinhaRepository.findById(cozinhaId);
+	    if (cozinha!= null) {
+		cozinhaRepository.remover(cozinha);
+//	    	ResponseEntity.noContent().build();
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	    }
+	    return ResponseEntity.notFound().build();
+	}catch (DataIntegrityViolationException e) {
+	    return ResponseEntity.status(HttpStatus.CONFLICT).build();
+	}
+    }
 
     /* Lançando um status 302 com header utilizando ResponseEntity. 
     @GetMapping("/{cozinhaId}")
@@ -80,6 +109,5 @@ public class CozinhaController {
 	//retornando o header
 	return ResponseEntity.status(HttpStatus.FOUND).headers(header).build();
     }
-    */
-    
+    */ 
 }
