@@ -6,7 +6,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.ray.rayfood.api.model.CozinhasXmlWrapper;
 import com.ray.rayfood.domain.entities.Cozinha;
 import com.ray.rayfood.domain.repository.CozinhaRepository;
 
@@ -44,10 +42,10 @@ public class CozinhaControllerComentada {
 	return cozinhaRepository.listar();
     }
     
-    @GetMapping (produces = MediaType.APPLICATION_XML_VALUE)//quando soliciar xml, vai cair nesse método
+   /* @GetMapping (produces = MediaType.APPLICATION_XML_VALUE)//quando soliciar xml, vai cair nesse método
     public CozinhasXmlWrapper listarXml (){
 	return new CozinhasXmlWrapper(cozinhaRepository.listar());
-    }
+    }*/
     
    // @ResponseStatus(code = HttpStatus.OK) //lançando manualmente um status http como resposta
     @GetMapping("/{cozinhaId}")
