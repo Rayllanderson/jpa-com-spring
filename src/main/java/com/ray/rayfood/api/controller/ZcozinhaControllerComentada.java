@@ -30,7 +30,7 @@ import com.ray.rayfood.domain.repository.CozinhaRepository;
 //esses 2 de cima podem ser substituídos por: @RestController
 //@RestController //também diz que não é um controlador qualquer, e sim um controlador RESTTT BRO
 //@RequestMapping("/cozinhas") //mapeando a api. as requisições com /cozinhas, vão cair nesse @controller e qual método? ALI>
-public class CozinhaControllerComentada {
+public class ZcozinhaControllerComentada {
     
     @Autowired
     private CozinhaRepository cozinhaRepository;
