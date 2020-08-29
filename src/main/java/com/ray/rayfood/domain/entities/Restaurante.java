@@ -33,6 +33,6 @@ public class Restaurante {
     //pra mudar o nome, usa o @JoinColumn(name = "fk_cozinha"), provavelmente por ser FK
     private Cozinha cozinha;
 
-    @ManyToOne
-    private FormaPagamento formaPagamento;
+//    @ManyToOne
+//    private FormaPagamento formaPagamento;
 }
