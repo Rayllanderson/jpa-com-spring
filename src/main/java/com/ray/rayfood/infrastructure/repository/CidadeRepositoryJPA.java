@@ -41,7 +41,7 @@ public class CidadeRepositoryJPA implements CidadeRepository {
 	if (c == null) {
 	    throw new EmptyResultDataAccessException(1);
 	}
-	em.remove(id);
+	em.remove(c);
     }
 
 }
