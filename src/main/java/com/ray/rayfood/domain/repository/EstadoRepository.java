@@ -6,12 +6,12 @@ import com.ray.rayfood.domain.entities.Estado;
 
 public interface EstadoRepository {
 
-    List<Estado> todos();
+    List<Estado> listar();
 
-    Estado porId(Long id);
+    Estado findById(Long id);
 
     Estado adicionar(Estado estado);
 
-    void remover(Estado estado);
+    void removeById(Long id);
 
 }

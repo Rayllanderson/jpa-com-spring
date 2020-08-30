@@ -8,8 +8,12 @@ insert into restaurante (nome, taxa_frete, cozinha_id) values ("Sanji restaurant
 insert into restaurante (nome, taxa_frete, cozinha_id) values ("Baratiê", 3.99, 2);
 insert into restaurante (nome, taxa_frete, cozinha_id) values ("Souma family", 6.99, 4);
 
-insert into permissao (nome, descricao) values ("Administrador", "Tem acesso a tudo")
-insert into permissao (nome, descricao) values ("Usuario", "Tem acesso as funcionalidades padrões")
+insert into forma_pagamento (id, descricao) values (1, 'Cartão de crédito');
+insert into forma_pagamento (id, descricao) values (2, 'Cartão de débito');
+insert into forma_pagamento (id, descricao) values (3, 'Dinheiro');
+
+insert into permissao (id, nome, descricao) values (1, 'CONSULTAR_COZINHAS', 'Permite consultar cozinhas');
+insert into permissao (id, nome, descricao) values (2, 'EDITAR_COZINHAS', 'Permite editar cozinhas');
 
 insert into estado (nome) values ('Maranhão')
 insert into estado (nome) values ("São Paulo")

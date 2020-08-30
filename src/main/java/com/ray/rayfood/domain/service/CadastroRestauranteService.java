@@ -1,6 +1,7 @@
 package com.ray.rayfood.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,8 @@ public class CadastroRestauranteService {
 	    restauranteRepository.remover(id);
 	}catch (EmptyResultDataAccessException e) {
 	    throw new EntidadeNaoEncontradaException("Não existe um cadastro de restaurante com código " + id);
+	}catch (DataIntegrityViolationException e) {
+	   
 	}
     }
 }
