@@ -29,7 +29,8 @@ public class CadastroRestauranteService {
 	return restauranteRepository.adicionar(restaurante);
     }
     
-    public void excluir (Long id) {
+    
+    public void excluir (Long id) throws EntidadeNaoEncontradaException{
 	try {
 	    restauranteRepository.remover(id);
 	}catch (EmptyResultDataAccessException e) {
