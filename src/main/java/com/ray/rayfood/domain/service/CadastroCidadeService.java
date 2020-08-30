@@ -18,9 +18,10 @@ public class CadastroCidadeService {
     @Autowired
     private CidadeRepository cidadeRepository;
     
+    @Autowired
     private EstadoRepository estadoRepository;
-    
-    public Cidade salvar(Cidade cidade) {
+
+    public Cidade salvar(Cidade cidade) throws EntidadeNaoEncontradaException {
 	Long estadoId = cidade.getEstado().getId();
 	Estado estado = estadoRepository.findById(estadoId);
 	if (estado == null) {
@@ -30,7 +31,7 @@ public class CadastroCidadeService {
 	return this.cidadeRepository.adicionar(cidade);
     }
     
-    public void remover(Long id) {
+    public void remover(Long id) throws EntidadeNaoEncontradaException, EntidadeEmUsoException {
 	try {
 	    this.cidadeRepository.removeById(id);
 	}catch (EmptyResultDataAccessException e) {
