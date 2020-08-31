@@ -24,9 +24,14 @@ public class CozinhaRepositoryJPA implements CozinhaRepository{
 	return em.createQuery("from Cozinha", Cozinha.class).getResultList();
     }
 
-    @Override
+   /* @Override //nome = nome
     public List<Cozinha> consultarPorNome(String nomeCozinha) {
 	return em.createQuery("from Cozinha where nome = :nome", Cozinha.class).setParameter("nome", nomeCozinha).getResultList();
+    }*/
+    
+    @Override //nome contém nome, se eu pesquisar por A, vai listar tudo com A
+    public List<Cozinha> consultarPorNome(String nomeCozinha) {
+	return em.createQuery("from Cozinha where nome like :nome", Cozinha.class).setParameter("nome", "%" + nomeCozinha + "%").getResultList();
     }
     
     @Override
