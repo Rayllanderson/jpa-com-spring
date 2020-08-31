@@ -7,12 +7,13 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.ray.rayfood.domain.entities.Cozinha;
 import com.ray.rayfood.domain.repository.CozinhaRepository;
 
-@Component //vai ser injetada em algum canto ae kkkk
+//@Component //vai ser injetada em algum canto ae kkkk
+@Repository
 public class CozinhaRepositoryJPA implements CozinhaRepository{
 
     @PersistenceContext
@@ -23,6 +24,11 @@ public class CozinhaRepositoryJPA implements CozinhaRepository{
 	return em.createQuery("from Cozinha", Cozinha.class).getResultList();
     }
 
+    @Override
+    public List<Cozinha> consultarPorNome(String nomeCozinha) {
+	return em.createQuery("from Cozinha where nome = :nome", Cozinha.class).setParameter("nome", nomeCozinha).getResultList();
+    }
+    
     @Override
     @Transactional
     public Cozinha adicionar(Cozinha cozinha) {
