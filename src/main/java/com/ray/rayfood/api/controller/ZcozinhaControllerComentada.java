@@ -1,4 +1,4 @@
-package com.ray.rayfood.api.controller;
+/*package com.ray.rayfood.api.controller;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import com.ray.rayfood.domain.repository.CozinhaRepository;
 /*
  * UM RECURSO É QUALQUER COISA EXPOXTA NA WEB E PRECISA DE UM URI PRA SER ACESSADO!
  * 
- */
+ *
 
 //@Controller //indica que essa classe é um controller (oh, não me diga...)
 //@ResponseBody - diz que a respostas dos métodos deve ser enviada como resposta da requisição HTTP
@@ -45,7 +45,7 @@ public class ZcozinhaControllerComentada {
    /* @GetMapping (produces = MediaType.APPLICATION_XML_VALUE)//quando soliciar xml, vai cair nesse método
     public CozinhasXmlWrapper listarXml (){
 	return new CozinhasXmlWrapper(cozinhaRepository.listar());
-    }*/
+    }
     
    // @ResponseStatus(code = HttpStatus.OK) //lançando manualmente um status http como resposta
     @GetMapping("/{cozinhaId}")
@@ -106,4 +106,4 @@ public class ZcozinhaControllerComentada {
 	return ResponseEntity.status(HttpStatus.FOUND).headers(header).build();
     }
     */ 
-}
+//}

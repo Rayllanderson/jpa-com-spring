@@ -18,8 +18,8 @@ public class ZTesteController {
     @Autowired
     private CozinhaRepository repository;
     
-    @GetMapping("/cozinhas/por-nome")
-    public List<Cozinha> cozinhaPorNome(@RequestParam("nome") String nomeCozinha){//parametro da requisição
-	return repository.consultarPorNome(nomeCozinha);
-    }
+//    @GetMapping("/cozinhas/por-nome")
+//    public List<Cozinha> cozinhaPorNome(@RequestParam("nome") String nomeCozinha){//parametro da requisição
+//	return repository.consultarPorNome(nomeCozinha);
+//    }
 }

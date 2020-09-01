@@ -1,15 +1,15 @@
 package com.ray.rayfood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ray.rayfood.domain.entities.Cozinha;
 
-public interface CozinhaRepository {
-
-    List<Cozinha> listar();
-    List<Cozinha> consultarPorNome(String nome);
-    Cozinha findById(Long id);
-    Cozinha adicionar(Cozinha c);
-    void remover(Long id);
+@Repository
+public interface CozinhaRepository extends JpaRepository<Cozinha, Long> { //<Repositorio da entidade, Tipo do ID da entidade>
+//vai criar uma classe em tempo de excecução
+    
+    
+//    List<Cozinha> consultarPorNome(String nome);
 
 }
