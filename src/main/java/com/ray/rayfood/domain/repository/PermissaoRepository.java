@@ -1,14 +1,12 @@
 package com.ray.rayfood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ray.rayfood.domain.entities.Permissao;
 
-public interface PermissaoRepository {
+@Repository
+public interface PermissaoRepository extends JpaRepository<Permissao, Long>{
 
-    List<Permissao> todas();
-    Permissao porId(Long id);
-    Permissao adicionar(Permissao p);
-    void remover(Permissao p);
 
 }
