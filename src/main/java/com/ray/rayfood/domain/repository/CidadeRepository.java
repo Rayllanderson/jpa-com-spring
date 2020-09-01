@@ -1,16 +1,11 @@
 package com.ray.rayfood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ray.rayfood.domain.entities.Cidade;
 
-public interface CidadeRepository {
+@Repository
+public interface CidadeRepository extends JpaRepository<Cidade, Long>{
 
-    List<Cidade> listar();
-
-    Cidade findById(Long id);
-
-    Cidade adicionar(Cidade c);
-
-    void removeById(Long id);
 }

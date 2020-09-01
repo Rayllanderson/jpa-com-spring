@@ -23,17 +23,14 @@ public class CadastroCidadeService {
 
     public Cidade salvar(Cidade cidade) throws EntidadeNaoEncontradaException {
 	Long estadoId = cidade.getEstado().getId();
-	Estado estado = estadoRepository.findById(estadoId);
-	if (estado == null) {
-	    throw new EntidadeNaoEncontradaException("Não existe Estado cadastrado com id " + estadoId);
-	}
+	Estado estado = estadoRepository.findById(estadoId).orElseThrow(() -> new EntidadeNaoEncontradaException("Não existe Estado cadastrado com id " + estadoId));
 	cidade.setEstado(estado);
-	return this.cidadeRepository.adicionar(cidade);
+	return this.cidadeRepository.save(cidade);
     }
     
     public void remover(Long id) throws EntidadeNaoEncontradaException, EntidadeEmUsoException {
 	try {
-	    this.cidadeRepository.removeById(id);
+	    this.cidadeRepository.deleteById(id);
 	}catch (EmptyResultDataAccessException e) {
 	    throw new EntidadeNaoEncontradaException("Não existe cidade cadastrada com id " + id);
 	}catch (DataIntegrityViolationException e) {

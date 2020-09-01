@@ -17,12 +17,12 @@ public class CadastroEstadoService {
     EstadoRepository repository;
 
     public Estado salvar(Estado estado) {
-	return this.repository.adicionar(estado);
+	return this.repository.save(estado);
     }
 
     public void excluir(Long estadoId) throws EntidadeNaoEncontradaException {
 	try {
-	    this.repository.removeById(estadoId);
+	    this.repository.deleteById(estadoId);
 	} catch (EmptyResultDataAccessException e) {
 	    throw new EntidadeNaoEncontradaException(
 		    String.format("Não existe um cadastro de estado com código %d", estadoId));
