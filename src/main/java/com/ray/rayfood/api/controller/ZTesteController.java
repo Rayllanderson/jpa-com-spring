@@ -35,14 +35,14 @@ public class ZTesteController {
     }
     
     @GetMapping("/restaurantes/taxa-frete-entre")
-    public List<Restaurante> taxaFreteEntre(BigDecimal taxaInicial, BigDecimal taxaFinal){//parametro da requisição opcional
-	return rRepository.findByTaxaFreteBetween(taxaInicial, taxaFinal);
+    public List<Restaurante> taxaFreteEntre(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal){//parametro da requisição opcional
+	return rRepository.find(nome, taxaFreteInicial, taxaFreteFinal);
     }
     
-    /*@GetMapping("/restaurantes/por-nome")
-    public List<Restaurante> restaurantePorNome(String nome, Long cozinhaId){
-	return rRepository.findByNomeContainingAndCozinhaId(nome, cozinhaId);
-    }*/
+    @GetMapping("/restaurantes/por-nome1")
+    public List<Restaurante> restaurantePorNome1(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal){
+	return rRepository.find(nome, taxaFreteInicial, taxaFreteFinal);
+    }
     
     //mesma coisa do método acima, but com nome diferente, podendo ter essas 2 possibilidades
     @GetMapping("/restaurantes/por-nome")
