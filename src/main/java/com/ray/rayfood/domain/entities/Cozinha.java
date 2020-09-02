@@ -1,11 +1,16 @@
 package com.ray.rayfood.domain.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 //import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
@@ -30,4 +35,8 @@ public class Cozinha {
     //@JsonIgnore //na "saída" não vai aparecer ele; OBS: com o @JsonProperty, nao funciona, pois o @JsonProperty tem prioridade
     @Column(length = 30)
     private String nome;
+    
+    @JsonIgnore
+    @OneToMany
+    private List<Restaurante> restaurantes = new ArrayList<>();
 }

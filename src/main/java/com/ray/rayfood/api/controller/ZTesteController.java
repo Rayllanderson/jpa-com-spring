@@ -25,7 +25,7 @@ public class ZTesteController {
     private RestauranteRepository rRepository;
     
     @GetMapping("/cozinhas/por-nome")
-    public List<Cozinha> cozinhaPorNome(@RequestParam("nome") String nomeCozinha){//parametro da requisição
+    public List<Cozinha> cozinhaPorNome(@RequestParam("nome") String nomeCozinha){//@@RequestParam = parametro da requisição
 	return cRepository.findTodasByNome(nomeCozinha);
     }
     
@@ -35,7 +35,7 @@ public class ZTesteController {
     }
     
     @GetMapping("/restaurantes/taxa-frete-entre")
-    public List<Restaurante> taxaFreteEntre(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal){//parametro da requisição opcional
+    public List<Restaurante> taxaFreteEntre(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal){
 	return rRepository.find(nome, taxaFreteInicial, taxaFreteFinal);
     }
     
