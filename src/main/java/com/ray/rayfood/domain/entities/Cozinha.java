@@ -36,7 +36,7 @@ public class Cozinha {
     @Column(length = 30)
     private String nome;
     
-    @JsonIgnore
-    @OneToMany
+    @JsonIgnore //ignorar na representação
+    @OneToMany (mappedBy = "cozinha")//uma cozinha tem muitos restautrantes. ou seja, um tipo de cozinha, like cozinha japonesa, pode ter no restaurante x ou y
     private List<Restaurante> restaurantes = new ArrayList<>();
 }
