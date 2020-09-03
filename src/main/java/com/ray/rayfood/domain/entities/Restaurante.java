@@ -1,6 +1,7 @@
 package com.ray.rayfood.domain.entities;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -35,12 +39,23 @@ public class Restaurante {
 
     @Column(name = "taxa_frete", nullable = false)
     private BigDecimal taxaFrete;
+    
+    @JsonIgnore
+    @CreationTimestamp
+    @Column(nullable = false, columnDefinition = "datetime")
+    private LocalDateTime dataCriacao;
+    
+    @JsonIgnore
+    @UpdateTimestamp
+    @Column(nullable = false, columnDefinition = "datetime")
+    private LocalDateTime dataAtualizacao;
 
-    @ManyToOne
+    @ManyToOne //muitos restaurantes possuem 1 tipo de cozinha
     // pra mudar o nome, usa o @JoinColumn(name = "fk_cozinha"), provavelmente por
     // ser FK
     private Cozinha cozinha;
 
+    @JsonIgnore
     @Embedded //essa proproiedade é de um tipo incorporado
     private Endereco endereco;
     
